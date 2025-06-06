@@ -10,11 +10,28 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
+  /* Hide vertical scrollbar but allow vertical scrolling */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 
   body {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
     overflow-x: hidden;
     font-family: var(--font-inter), sans-serif;
   }
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
   /* Optional class for Thai text */
   /* Optional class for Thai text */
   .thai-text {
