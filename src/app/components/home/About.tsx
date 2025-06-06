@@ -1,20 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Image from "next/image";
 import Button from "../ui/Button";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Pagination from "../ui/Pagination";
 import Link from "next/link";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 const images = ["/images/About.png", "/images/Hero.png"];
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-
-
   return (
     <section
       id="about"

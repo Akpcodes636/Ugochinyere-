@@ -1,9 +1,8 @@
 "use client";
-
 import Image from "next/image";
 import HireBtn from "../ui/Hire";
-import { useEffect } from "react";
-// Import AOS styles
+
+
 
 export default function Hero() {
   return (
@@ -20,7 +19,7 @@ export default function Hero() {
             className="w-full h-full object-contain"
           />
         </div>
-        <div className="text-center mb-[9px]">
+        <div className="text-center mb-[50px] lg:mb-[9px]">
           <h1 className="text-[32px] md:text-[42px] lg:text-[55px]  thai-text font-medium">
             I&apos;m <span className="text-[#FA7892]">Ugochinyere</span>
           </h1>
