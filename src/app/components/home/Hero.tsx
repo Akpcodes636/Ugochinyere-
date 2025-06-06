@@ -28,14 +28,14 @@ export default function Hero() {
           </h2>
         </div>
         <div
-          className="w-full max-w-[586px] flex items-center justify-center relative"
+          className="w-full max-w-[600px] flex items-center justify-center relative"
         >
           <Image
             src="/images/Heross.svg"
             alt="hero of Mrs Ugochinyere"
             width={500}
             height={500}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
           <div className="absolute hidden lg:block bottom-[30%] sm:bottom-[10%] left-1/2 transform -translate-x-1/2">
             <HireBtn />

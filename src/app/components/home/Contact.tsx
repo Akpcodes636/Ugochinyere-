@@ -1,10 +1,106 @@
 "use client";
+import React, { useState } from "react";
+import { toast } from "sonner";
 import Button from "../ui/Button";
 import InputField from "../ui/InputField";
 import { CalendarDays, Mail, User } from "lucide-react";
 
-
 export default function Contact() {
+  const [formValues, setFormValues] = useState({
+    Name: "",
+    Email: "",
+    Message: "",
+  });
+
+  const [errors, setErrors] = useState<{ Name?: string; Email?: string; Message?: string }>({});
+
+  const validateEmail = (email: string): boolean => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const validateForm = () => {
+    const newErrors: { Name?: string; Email?: string; Message?: string } = {};
+
+    if (!formValues.Name.trim()) {
+      newErrors.Name = "Name is required";
+    } else if (formValues.Name.length < 2) {
+      newErrors.Name = "Name must be at least 2 characters";
+    }
+
+    if (!formValues.Email.trim()) {
+      newErrors.Email = "Email is required";
+    } else if (!validateEmail(formValues.Email)) {
+      newErrors.Email = "Email is invalid";
+    }
+
+    if (!formValues.Message.trim()) {
+      newErrors.Message = "Message is required";
+    } else if (formValues.Message.length < 10) {
+      newErrors.Message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const { name, value } = e.target;
+    setFormValues((prev: FormValues) => ({
+      ...prev,
+      [name]: value,
+    }));
+    setErrors((prev: FormErrors) => ({ ...prev, [name]: "" })); // clear field error on typing
+  };
+
+  interface FormValues {
+    Name: string;
+    Email: string;
+    Message: string;
+  }
+
+  interface FormErrors {
+    Name?: string;
+    Email?: string;
+    Message?: string;
+  }
+
+  interface ApiResponse {
+    success: boolean;
+    message?: string;
+  }
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      toast.error("Please fix the errors in the form");
+      return;
+    }
+
+    const loadingToast = toast.loading("Sending...");
+
+    const formData = new FormData();
+    formData.append("Name", formValues.Name);
+    formData.append("Email", formValues.Email);
+    formData.append("Message", formValues.Message);
+    formData.append("access_key", "58e857f7-a17d-4ec0-b8c2-9223c32cfd63");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data: ApiResponse = await response.json();
+
+    if (data.success) {
+      toast.success("Form submitted successfully!", { id: loadingToast });
+      setFormValues({ Name: "", Email: "", Message: "" });
+      setErrors({});
+    } else {
+      toast.error(data.message || "Something went wrong", {
+        id: loadingToast,
+      });
+    }
+  };
+
   return (
     <section id="contact" data-aos="fade-up" data-aos-delay="100">
       <div className="container mx-auto py-[80px]">
@@ -19,38 +115,49 @@ export default function Contact() {
 
         <div className="flex flex-col items-center justify-center md:flex-col lg:flex-row gap-[30px] mt-[48px]">
           {/* Contact Form */}
-          <div
-            className="shadow-[0px_6px_16px_4px_#FEEBEF] w-full md:w-[80%] lg:w-[605px] h-[560px] rounded-[5px]"
-          >
+          <div className="shadow-[0px_6px_16px_4px_#FEEBEF] w-full md:w-[80%] lg:w-[605px] h-auto rounded-[5px]">
             <div className="py-[45px] px-[26px]">
-              <form>
+              <form onSubmit={onSubmit} noValidate>
                 <InputField
                   name="Name"
                   label="Name"
                   placeholder="Your name"
-                  value=""
-                  onChange={(e) => console.log(e.target.value)}
+                  value={formValues.Name}
+                  onChange={handleChange}
                   icon={<User size={18} />}
                   css="pl-10"
                 />
+                {errors.Name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.Name}</p>
+                )}
+
                 <InputField
                   name="Email"
                   label="Email"
                   placeholder="johndoe@gmail.com"
-                  value=""
-                  onChange={(e) => console.log(e.target.value)}
+                  value={formValues.Email}
+                  onChange={handleChange}
                   icon={<Mail size={18} />}
                   css="pl-10"
                 />
-                <div className="flex flex-col gap-2">
+                {errors.Email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.Email}</p>
+                )}
+
+                <div className="flex flex-col gap-2 mt-4">
                   <label className="label-class">Message</label>
                   <textarea
-                    name=""
-                    id=""
-                    className="w-full  h-[152px] border border-[#EFEFEF] rounded-[5px] p-[16px]  hover:border focus:border-[3px] focus:bg-white focus:outline-none resize-none"
+                    name="Message"
+                    value={formValues.Message}
+                    onChange={handleChange}
+                    className="w-full h-[152px] border border-[#EFEFEF] rounded-[5px] p-[16px] hover:border focus:border-[3px] focus:bg-white focus:outline-none resize-none"
                     placeholder="Your message"
                   ></textarea>
+                  {errors.Message && (
+                    <p className="text-red-500 text-sm">{errors.Message}</p>
+                  )}
                 </div>
+
                 <div className="flex items-center justify-center mt-[28px]">
                   <Button
                     type="submit"
@@ -65,10 +172,9 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Schedule Call */}
-          <div
-            className="shadow-[0px_6px_16px_4px_#FEEBEF] w-full md:w-[80%] lg:w-[605px] h-[560px] rounded-[5px]"
-          >
+          {/* Schedule Call - unchanged */}
+          {/* You can leave this part as is or update it later */}
+          <div className="shadow-[0px_6px_16px_4px_#FEEBEF] w-full md:w-[80%] lg:w-[605px] h-[560px] rounded-[5px]">
             <div className="p-[45px] pb-[180px] px-[55px]">
               <div className="flex items-center justify-center flex-col">
                 <div className="w-[60px] h-[60px] bg-[#FEF0F3] rounded-full flex items-center justify-center mb-[16px]">
