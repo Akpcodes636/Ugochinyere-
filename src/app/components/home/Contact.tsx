@@ -1,21 +1,10 @@
 "use client";
-
-import { useEffect } from "react";
 import Button from "../ui/Button";
 import InputField from "../ui/InputField";
 import { CalendarDays, Mail, User } from "lucide-react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export default function Contact() {
-  useEffect(() => {
-    AOS.init({
-      duration: 700,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
-
   return (
     <section id="contact" data-aos="fade-up" data-aos-delay="100">
       <div className="container mx-auto py-[80px]">
@@ -32,8 +21,6 @@ export default function Contact() {
           {/* Contact Form */}
           <div
             className="shadow-[0px_6px_16px_4px_#FEEBEF] w-full md:w-[80%] lg:w-[605px] h-[560px] rounded-[5px]"
-            data-aos="fade-right"
-            data-aos-delay="300"
           >
             <div className="py-[45px] px-[26px]">
               <form>
@@ -81,8 +68,6 @@ export default function Contact() {
           {/* Schedule Call */}
           <div
             className="shadow-[0px_6px_16px_4px_#FEEBEF] w-full md:w-[80%] lg:w-[605px] h-[560px] rounded-[5px]"
-            data-aos="fade-left"
-            data-aos-delay="400"
           >
             <div className="p-[45px] pb-[180px] px-[55px]">
               <div className="flex items-center justify-center flex-col">

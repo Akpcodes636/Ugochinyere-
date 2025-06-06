@@ -1,22 +1,12 @@
 "use client";
-
-import { useEffect } from "react";
 import { Instagram } from "lucide-react";
 import Link from "next/link";
 import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { RxLinkedinLogo } from "react-icons/rx";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export default function Footer() {
-  useEffect(() => {
-    AOS.init({
-      duration: 700,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
 
   return (
     <section className="bg-[#262626]">
@@ -24,8 +14,6 @@ export default function Footer() {
         <div className="flex flex-col md:flex-col lg:flex-row items-start justify-between gap-y-[30px]">
           <div
             className="w-full max-w-[426px]"
-            data-aos="fade-up"
-            data-aos-delay="100"
           >
             <h4 className="text-left lg:text-[24px] thai-text text-[16px] md:text-[18px] mb-[16px] font-semibold text-[#FA7892]">
               Ugochinyere Amaonyeanaso
@@ -38,8 +26,6 @@ export default function Footer() {
 
           <div
             className="w-full max-w-[128px]"
-            data-aos="fade-up"
-            data-aos-delay="200"
           >
             <h4 className="text-left lg:text-[24px] thai-text text-[16px] md:text-[18px] mb-[16px] font-semibold text-[#FA7892]">
               Navigation
@@ -54,8 +40,6 @@ export default function Footer() {
 
           <div
             className="w-full max-w-[210px]"
-            data-aos="fade-up"
-            data-aos-delay="300"
           >
             <h4 className="text-left lg:text-[24px] thai-text text-[16px] md:text-[18px] mb-[16px] font-semibold text-[#FA7892]">
               Contact
