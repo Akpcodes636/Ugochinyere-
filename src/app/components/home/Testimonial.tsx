@@ -8,10 +8,8 @@ import { Testimonials } from "@/app/utils/Contents";
 import TestimonialCard from "../ui/TestimonialCard";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-import { useState } from "react";
 
 export default function Testimonial() {
-  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <section id="Testimonial" className="bg-cover py-[53px]">
       <div className="container mx-auto">
@@ -34,8 +32,6 @@ export default function Testimonial() {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          // spaceBetween={30}
-          // onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           className="testimonial-swiper"
           centeredSlides={true}
           slidesPerView="auto" // Shows other cards slightly

@@ -1,4 +1,4 @@
-import { title } from "process";
+
 
 export const navLinks = [
   {
@@ -22,7 +22,7 @@ export const navLinks = [
 export const Services = [
   {
     title: "Business Process Optimization",
-    text: "Streamline your workflows and boost efficiency across every part of your business.",
+    text: "Streamline your workflows and boost efficiency across every part of your business..",
     image: "/images/icons.png",
   },
   {
