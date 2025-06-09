@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import Button from "../ui/Button";
 import InputField from "../ui/InputField";
 import { CalendarDays, Mail, User } from "lucide-react";
+import Link from "next/link";
 
 export default function Contact() {
   const [formValues, setFormValues] = useState({
@@ -141,7 +142,7 @@ export default function Contact() {
                   css="pl-10"
                 />
                 {errors.Email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.Email}</p>
+                  <p className="text-red-500 text-sm">{errors.Email}</p>
                 )}
 
                 <div className="flex flex-col gap-2 mt-4">
@@ -158,7 +159,7 @@ export default function Contact() {
                   )}
                 </div>
 
-                <div className="flex items-center justify-center mt-[28px]">
+                <div className="flex items-center justify-center mt-[10px]">
                   <Button
                     type="submit"
                     icon={null}
@@ -190,17 +191,19 @@ export default function Contact() {
                     have.
                   </p>
                   <div className="flex items-center justify-center mt-[28px] mb-[56px]">
+                    <Link href="https://koalendar.com/e/meet-with-ewherhe-akpesiri">
                     <Button
                       type="submit"
                       icon={null}
                       style="pink"
-                      css="w-[393px] h-[43px] rounded-[31px] font-bold text-[#000000]"
+                      css="w-[200px] lg:w-[393px] h-[43px] rounded-[31px] font-bold text-[#000000]"
                     >
                       Book a Call
                     </Button>
+                    </Link>
                   </div>
                   <hr className="border border-[#E2E2E2AB]" />
-                  <div className="pt-[32px] flex items-center justify-center gap-[8px] w-full max-w-[236px] mx-auto">
+                  <div className="pt-[32px] flex items-center justify-center gap-[8px] w-full mx-w-[236px] mx-auto">
                     <span>
                       <CalendarDays size={22} color="#00000066" />
                     </span>

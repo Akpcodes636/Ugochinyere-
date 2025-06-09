@@ -11,7 +11,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function Testimonial() {
   return (
-    <section id="Testimonial" className="bg-cover py-[53px]">
+    <section id="Testimonial" className="bg-coer bg-black py-[53px]">
       <div className="container mx-auto">
         <div className="max-w-[400px] md:max-w-[400px] lg:max-w-[634px] mx-auto">
           <Image
@@ -37,7 +37,8 @@ export default function Testimonial() {
           slidesPerView="auto" // Shows other cards slightly
           slideActiveClass="custom-active-slide"
           loop={true}
-          speed={300}
+          speed={700}
+          spaceBetween={30}
           effect={'coverflow'}
           grabCursor={true}
           centeredSlidesBounds={true}
@@ -51,7 +52,7 @@ export default function Testimonial() {
           {Testimonials.map((testimonial, index) => (
             <SwiperSlide
               key={index}
-              className="!w-[90%] md:!w-[600px] lg:!w-[711px] transition-all"
+              className="!w-[100%] md:!w-[600px] lg:!w-[711px] transition-all"
             >
               <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>

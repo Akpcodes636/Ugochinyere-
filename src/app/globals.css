@@ -20,9 +20,7 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
-
-
-  body {
+ body {
     scrollbar-width: none; 
     -ms-overflow-style: none;
     overflow-x: hidden;
@@ -45,6 +43,7 @@ body::-webkit-scrollbar {
   .input-class {
     @apply h-[56px] w-full rounded-[5px] border border-[#EFEFEF] bg-white px-4 py-3 text-[#000000E5] hover:border focus:border-[3px] focus:bg-white focus:outline-none mb-[24px];
   }
+  
 }
 
 @layer utilities {
@@ -58,6 +57,21 @@ body::-webkit-scrollbar {
   .testimonial-swiper .swiper-slide {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  
 }
 
 @theme {

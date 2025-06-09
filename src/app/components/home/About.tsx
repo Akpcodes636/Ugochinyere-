@@ -1,23 +1,36 @@
 "use client";
-import { useState} from "react";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "../ui/Button";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Pagination from "../ui/Pagination";
 import Link from "next/link";
+import AOS from "aos";
 import "aos/dist/aos.css";
 
 const images = ["/images/About.png", "/images/Hero.png"];
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-in-out",
+      once: true,
+      offset: 50,
+    });
+  }, []);
+
   return (
-    <section
-      id="about"
-      className="bg-cover min-h-screen rounded-t-[50px] overflow-hidden relative z-10"
-    >
-      <div className="container mx-auto h-full py-[50px]">
-        <div className="w-[179px] h-[52px] mx-auto">
+    <section id="about" className="bg-coer bg-black min-h-screen">
+      <div className="container mx-auto py-[50px]">
+        <div
+          className="w-[179px] h-[52px] mx-auto"
+          data-aos="fade"
+          data-aos-delay="100"
+        >
           <Image
             src="/images/Aboutme.svg"
             alt="about me image"
@@ -29,7 +42,11 @@ export default function About() {
 
         <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center gap-x-[72px] mt-10 px-4">
           {/* Box One */}
-          <div className="w-full max-w-full min-h-full mb-[16px]">
+          <div
+            className="w-full max-w-full min-h-full mb-[16px]"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div className="w-full h-full space-y-[24px]">
               <p className="text-[16px] md:text-[16px] lg:text-[20px] font-normal leading-[130%] text-white">
                 I&apos;m{" "}
@@ -61,7 +78,11 @@ export default function About() {
           </div>
 
           {/* Box Two */}
-          <div className="w-full max-h-full max-w-full h-[400px]">
+          <div
+            className="w-full max-h-full max-w-full h-[400px]"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <Image
               src={images[currentIndex]}
               width={500}

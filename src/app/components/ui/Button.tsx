@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={fn}
       type={type}
-      className={`flex items-center justify-center font-medium cursor-pointer transition duration-150   ${css} ${
+      className={`flex items-center justify-center font-medium cursor-pointer transition duration-150 ${css} ${
         style === "white" && "border border-[#000000] text-black"
       } ${style === "pink" && "bg-[#FA7892] text-[#141414]"}
       }`}
