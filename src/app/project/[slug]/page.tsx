@@ -6,27 +6,20 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { PortableTextBlock } from '@portabletext/types';
 
-
 interface Project {
   _id: string;
   title: string;
   slug: { current: string };
   mainImage?: { asset?: { _ref?: string; url?: string } };
   description?: string;
-  body?: PortableTextBlock[]; // You can make this more specific based on your PortableText schema
+  body?: PortableTextBlock[];
   content?: string;
 } 
 
-// interface Params {
-//   params: {
-//     slug: string;
-//   };
-// }
-
 interface PageProps {
-  params: { 
+  params: Promise<{ 
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -37,7 +30,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params; // Await the params Promise
   const project: Project = await client.fetch(
     `*[_type == "project" && slug.current == $slug][0]{
       _id,
@@ -49,7 +42,6 @@ export default async function ProjectPage({ params }: PageProps) {
     }`,
     { slug }
   );
-
 
   return (
     <div className="w-full h-screen">
@@ -113,37 +105,6 @@ export default async function ProjectPage({ params }: PageProps) {
             }}
           />
         </div>
-
-        {/* More Projects Section */}
-        {/* {otherProjects?.length > 0 && (
-        <div className="px-4 my-40 container-sm mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-[#005effdd] border-b pb-2">
-            More Projects You Might Like
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {otherProjects.map((p) => (
-              <Link
-                key={p._id}
-                href={`/project/${p.slug.current}`}
-                className="block rounded overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="relative h-48 w-full">
-                  {p.mainImage ? (
-                    <img
-                      src={urlFor(p.mainImage).url()}
-                      alt={p.title}
-                      className="object-cover w-full h-full"
-                    />
-                  ) : (
-                    <div className="bg-gray-200 w-full h-full" />
-                  )}
-                </div>
-                <h3 className="mt-2 text-lg font-semibold px-2">{p.title}</h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )} */}
       </div>
       <Footer />
     </div>
