@@ -34,6 +34,7 @@ export default function Portfolio() {
       try {
         const data: Project[] = await client.fetch(portfolioQuery);
         setProjects(data);
+        console.log(data);
       } catch (err) {
         console.error("Error fetching portfolio:", err);
         setError("Failed to load portfolio. Please try again.");

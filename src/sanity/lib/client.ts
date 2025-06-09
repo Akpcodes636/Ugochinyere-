@@ -3,8 +3,8 @@ import { createClient } from 'next-sanity'
 import { apiVersion, dataset, projectId } from '../env'
 
 export const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
-})
+  projectId: "udk9tkmx",
+  dataset: "production",
+  apiVersion: "2023-01-01", // use a fixed past date
+  useCdn: true,
+});

@@ -4,6 +4,8 @@ import { urlFor } from "../../../sanity/lib/sanityImage";
 import { PortableText } from "@portabletext/react";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { PortableTextBlock } from '@portabletext/types';
+
 
 interface Project {
   _id: string;
@@ -11,7 +13,7 @@ interface Project {
   slug: { current: string };
   mainImage?: { asset?: { _ref?: string; url?: string } };
   description?: string;
-  body?: any; // You can make this more specific based on your PortableText schema
+  body?: PortableTextBlock[]; // You can make this more specific based on your PortableText schema
   content?: string;
 } 
 
@@ -21,24 +23,12 @@ interface Params {
   };
 }
 
-async function fetchOtherProjects(currentSlug: string): Promise<Project[]> {
-  return client.fetch(
-    `*[_type == "project" && slug.current != $slug][0...4]{
-      _id,
-      title,
-      slug,
-      mainImage,
-      Content
-    }`,
-    { slug: currentSlug }
-  );
-}
+
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const projects: Project[] = await client.fetch(
     `*[_type == "project"]{ slug }`
   );
-  console.log(projects);
   return projects.map((p) => ({ slug: p.slug.current }));
 }
 
@@ -55,7 +45,7 @@ export default async function ProjectPage({ params }: Params) {
     }`,
     { slug }
   );
-  console.log(project);
+
 
   return (
     <div className="w-full h-screen">
