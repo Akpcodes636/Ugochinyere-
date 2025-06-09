@@ -50,7 +50,7 @@ export default function Hero() {
           data-aos-delay="300"
         >
           <Image
-            src="/images/Herosv.svg"
+            src="/images/squoosg.webp"
             alt="hero of Mrs Ugochinyere"
             width={500}
             height={500}
