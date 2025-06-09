@@ -17,11 +17,11 @@ interface Project {
   content?: string;
 } 
 
-interface Params {
-  params: {
-    slug: string;
-  };
-}
+// interface Params {
+//   params: {
+//     slug: string;
+//   };
+// }
 
 
 
