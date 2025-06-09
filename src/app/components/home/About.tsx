@@ -24,8 +24,8 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="bg-coer bg-black min-h-screen">
-      <div className="container mx-auto py-[30px]">
+    <section id="about" className="bg-coer bg-black">
+      <div className="container mx-auto py-[50px]">
         <div
           className="w-[179px] h-[52px] mx-auto"
           data-aos="fade"
