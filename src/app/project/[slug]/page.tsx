@@ -23,7 +23,11 @@ interface Project {
 //   };
 // }
 
-
+interface PageProps {
+  params: { 
+    slug: string;
+  };
+}
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const projects: Project[] = await client.fetch(
@@ -32,7 +36,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return projects.map((p) => ({ slug: p.slug.current }));
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: PageProps) {
   const { slug } = params;
   const project: Project = await client.fetch(
     `*[_type == "project" && slug.current == $slug][0]{
