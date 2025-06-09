@@ -48,7 +48,7 @@ export const Services = [
   {
     title: "Brand Visibility",
     text: "Enhance your online presence and get your brand seen by the right audience.",
-    image: "/images/brand.png",
+    image: "/images/Brand.png",
   },
 ];
 
