@@ -3,19 +3,19 @@
 export const navLinks = [
   {
     title: "Home",
-    router: "#",
+    router: "/",
   },
   {
     title: "Services",
-    router: "#service",
+    router: "/#service",
   },
   {
     title: "Portfolio",
-    router: "#portfolio",
+    router: "/#portfolio",
   },
   {
     title: "Contact",
-    router: "#contact",
+    router: "/#contact",
   },
 ];
 

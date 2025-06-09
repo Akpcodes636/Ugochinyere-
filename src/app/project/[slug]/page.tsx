@@ -2,7 +2,6 @@ import Back from "@/app/components/ui/Back";
 import { client } from "../../../sanity/lib/client";
 import { urlFor } from "../../../sanity/lib/sanityImage";
 import { PortableText } from "@portabletext/react";
-import Link from "next/link";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
@@ -14,7 +13,7 @@ interface Project {
   description?: string;
   body?: any; // You can make this more specific based on your PortableText schema
   content?: string;
-}
+} 
 
 interface Params {
   params: {
@@ -57,7 +56,6 @@ export default async function ProjectPage({ params }: Params) {
     { slug }
   );
   console.log(project);
-  const otherProjects = await fetchOtherProjects(slug);
 
   return (
     <div className="w-full h-screen">

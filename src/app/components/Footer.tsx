@@ -17,7 +17,7 @@ export default function Footer() {
             </h4>
             <p className="text-[16px] text-white">
               Virtual Assistant & Project Manager helping businesses stay
-              organized and efficient. Let's work together!
+              organized and efficient. Let&apos;s work together!
             </p>
           </div>
 
