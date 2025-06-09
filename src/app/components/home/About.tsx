@@ -25,7 +25,7 @@ export default function About() {
 
   return (
     <section id="about" className="bg-coer bg-black min-h-screen">
-      <div className="container mx-auto py-[30px] lg:py-[50px]">
+      <div className="container mx-auto py-[30px]">
         <div
           className="w-[179px] h-[52px] mx-auto"
           data-aos="fade"
@@ -43,7 +43,7 @@ export default function About() {
         <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center gap-x-[72px] mt-10 px-4">
           {/* Box One */}
           <div
-            className="w-full max-w-full min-h-full mb-[16px]"
+            className="w-full max-w-full  mb-[16px]"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -79,7 +79,7 @@ export default function About() {
 
           {/* Box Two */}
           <div
-            className="w-full max-h-full max-w-full h-[216px] md:h-[350px] lg:h-[400px]"
+            className="w-full  max-w-full h-[216px] md:h-[350px] lg:h-[400px]"
             data-aos="fade-up"
             data-aos-delay="300"
           >
