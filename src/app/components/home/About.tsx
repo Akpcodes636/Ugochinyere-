@@ -25,7 +25,7 @@ export default function About() {
 
   return (
     <section id="about" className="bg-coer bg-black min-h-screen">
-      <div className="container mx-auto py-[50px]">
+      <div className="container mx-auto py-[30px] lg:py-[50px]">
         <div
           className="w-[179px] h-[52px] mx-auto"
           data-aos="fade"
@@ -68,7 +68,7 @@ export default function About() {
                     type="button"
                     icon={<MdOutlineArrowOutward />}
                     style="pink"
-                    css="w-[150px] lg:w-[182px] h-[56px] rounded-[31px]"
+                    css="w-[150px] lg:w-[182px] h-[45px] lg:h-[56px] rounded-[31px]"
                   >
                     Hire here
                   </Button>
@@ -79,7 +79,7 @@ export default function About() {
 
           {/* Box Two */}
           <div
-            className="w-full max-h-full max-w-full h-[400px]"
+            className="w-full max-h-full max-w-full h-[216px] md:h-[350px] lg:h-[400px]"
             data-aos="fade-up"
             data-aos-delay="300"
           >
@@ -88,7 +88,7 @@ export default function About() {
               width={500}
               height={500}
               alt="Picture of Ugochinyere"
-              className="rounded-[10px] w-full h-full object-cover transition-all duration-500"
+              className="rounded-[10px] w-full h-full object-cover transition-all duration-500 object-top-right"
             />
             <Pagination
               activeIndex={currentIndex}

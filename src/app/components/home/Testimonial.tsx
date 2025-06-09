@@ -25,8 +25,7 @@ export default function Testimonial() {
       </div>
 
       <div className="pt-[80px] pb-[40px] flex items-center justify-center">
-        <Swiper
-      
+      <Swiper
           modules={[EffectCoverflow, Navigation]}
           navigation={{
             nextEl: ".swiper-button-next",
@@ -34,25 +33,38 @@ export default function Testimonial() {
           }}
           className="testimonial-swiper"
           centeredSlides={true}
-          slidesPerView="auto" // Shows other cards slightly
-          slideActiveClass="custom-active-slide"
-          loop={true}
-          speed={700}
+          slidesPerView={1}
           spaceBetween={30}
-          effect={'coverflow'}
+          loop={true}
+          speed={500}
+          effect="coverflow"
           grabCursor={true}
-          centeredSlidesBounds={true}
           coverflowEffect={{
-            rotate: 0,
+            rotate: 15,
             stretch: 0,
-            depth: 100,
-            modifier: 2.5,
+            depth: 300,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1.2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
           }}
         >
           {Testimonials.map((testimonial, index) => (
             <SwiperSlide
               key={index}
-              className="!w-[100%] md:!w-[600px] lg:!w-[711px] transition-all"
+              className="!w-full max-w-[711px] transition-all duration-300"
             >
               <TestimonialCard testimonial={testimonial} />
             </SwiperSlide>

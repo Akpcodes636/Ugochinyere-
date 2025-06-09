@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header />
       <Hero />
-      <div className="relative z-10">
+      <div className="relative z-10 -mt-1.5">
         <About />
       </div>
       <Services />
