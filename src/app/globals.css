@@ -88,3 +88,9 @@ body::-webkit-scrollbar {
   margin: 0 auto;
   @apply px-5 sm:px-8;
 }
+
+.background {
+  background-image: url('/images/background1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { RxLinkedinLogo } from "react-icons/rx";
+import { SiTiktok } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -43,14 +44,17 @@ export default function Footer() {
               <Link href="/" aria-label="Instagram">
                 <Instagram size={24} color="white" />
               </Link>
-              <Link href="/" aria-label="Twitter">
+              <Link href="https://x.com/UProjectManager" aria-label="Twitter">
                 <RiTwitterXFill size={24} color="white" />
               </Link>
-              <Link href="/" aria-label="LinkedIn">
+              <Link
+                href="https://www.linkedin.com/in/ugochinyereamaonyeanaso-businessprojectmanager"
+                aria-label="LinkedIn"
+              >
                 <RxLinkedinLogo size={24} color="white" />
               </Link>
-              <Link href="/" aria-label="Facebook">
-                <FaFacebook size={24} color="white" />
+              <Link href="https://www.tiktok.com/@ugochinyere_amaonyeanaso" aria-label="TikTok">
+                <SiTiktok size={24} color="white" />
               </Link>
             </div>
           </div>
@@ -58,7 +62,8 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-600 mt-10 pt-6 text-center text-white text-sm">
-          © {new Date().getFullYear()} Ugochinyere Amaonyeanaso. All Rights Reserved.
+          © {new Date().getFullYear()} Ugochinyere Amaonyeanaso. All Rights
+          Reserved.
         </div>
       </div>
     </section>

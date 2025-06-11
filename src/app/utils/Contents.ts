@@ -22,27 +22,27 @@ export const navLinks = [
 export const Services = [
   {
     title: "Business Process Optimization",
-    text: "Streamline your workflows and boost efficiency across every part of your business..",
+    text: "Analyze processes, streamline workflows, and track performance(KPI) to boost team efficiency and productivity.",
     image: "/images/icons.png",
   },
   {
-    title: "Operational Automation",
-    text: "Save time and reduce manual tasks with smart, automated systems that work for you.",
+    title: "Automation & Integration Services",
+    text: "Automate repeatable tasks with tools like Zapier, integrate CRMs, and streamline your tech stack for smarter work.",
     image: "/images/video.png",
   },
   {
     title: "Project Management",
-    text: "Keep your projects on track with structured planning, clear timelines, and team alignment.",
+    text: "Set up and manage projects from start to finish using tools like ClickUp and Monday. Agile, Scrum, or hybrid methods to ensure success.",
     image: "/images/documents.png",
   },
   {
-    title: "Virtual Assistance",
-    text: "Get reliable support for your daily tasks - so you can focus on what matters most.",
+    title: "Website or IT project coordination",
+    text: "Create key documents like WBS, risk registers, and plans. Collaborate with stakeholders and manage risks effectively.",
     image: "/images/Virtual.png",
   },
   {
-    title: "Digital Setup",
-    text: "Set up the essential digital tools and systems your business needs to run smoothly.",
+    title: "SOP Writing & Documentation",
+    text: "Turn your workflows into repeatable, scalable systems with SOPs, templates, training docs, and a structured knowledge base.",
     image: "/images/computer.png",
   },
   {

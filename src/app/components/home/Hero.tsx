@@ -17,7 +17,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="container mx-auto">
+    <section className="background">
+      <div className="container mx-auto">
       <div className="flex items-center justify-center flex-col pt-[46px]">
         <div
           className="w-[71px] h-[35px] mb-[9px]"
@@ -41,7 +42,7 @@ export default function Hero() {
             I&apos;m <span className="text-[#FA7892]">Ugochinyere</span>
           </h1>
           <h2 className="text-[20px] md:text-[28px] thai-text font-medium lg:text-[38px] text-[#000000]">
-            Product Manager & Virtual Assistance
+            Project Manager & Business Operations Analyst
           </h2>
         </div>
         <div
@@ -60,6 +61,7 @@ export default function Hero() {
             <HireBtn />
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
