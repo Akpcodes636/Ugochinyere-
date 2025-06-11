@@ -1,7 +1,6 @@
 "use client";
 import { Instagram } from "lucide-react";
 import Link from "next/link";
-import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { SiTiktok } from "react-icons/si";
@@ -17,7 +16,7 @@ export default function Footer() {
               Ugochinyere Amaonyeanaso
             </h4>
             <p className="text-[16px] text-white">
-              Virtual Assistant & Project Manager helping businesses stay
+              Project Manager & Business Operations Analyst helping businesses stay
               organized and efficient. Let&apos;s work together!
             </p>
           </div>

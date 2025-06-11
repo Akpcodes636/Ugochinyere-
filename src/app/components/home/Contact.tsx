@@ -191,7 +191,8 @@ export default function Contact() {
                     have.
                   </p>
                   <div className="flex items-center justify-center mt-[28px] mb-[56px]">
-                    <Link href="https://koalendar.com/e/meet-with-ewherhe-akpesiri">
+                    {/* <Link href="https://koalendar.com/e/meet-with-ewherhe-akpesiri"> */}
+                    <Link href="https://selfany.com/projectmanagementclaritycall">
                     <Button
                       type="submit"
                       icon={null}

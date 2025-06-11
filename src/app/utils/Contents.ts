@@ -54,21 +54,21 @@ export const Services = [
 
 export const Testimonials = [
   {
-    Name: "John Doe",
-    text: "Working with this team has transformed our business. Their expertise in process optimization and automation has saved us countless hours and significantly improved our efficiency.",
-    image: "/images/man.png",
-    position:"CEO, Tech Haven",
+    Name: "Katherine Fasanella",
+    text: "I've had the pleasure of working with Ugo, and I can't recommend her enough! As a virtual assistant, she is highly organized, proactive, and detail-oriented. She consistently delivers high-quality work, manages tasks efficiently.",
+    image: "/images/testimonial2.jpg",
+    position:"Founder of MyHireRoads",
   },
   {
-    Name: "John Doe",
-    text: "Working with this team has transformed our business. Their expertise in process optimization and automation has saved us countless hours and significantly improved our efficiency.",
-    image: "/images/man.png",
-    position:"CEO, Tech Haven",
+    Name: "Gina Saad",
+    text: "I had the pleasure of working with Ugo, who brings enthusiasm for project management. She is always ready to support, eager to learn, and dedicated to enhancing her skills. Her strong communication abilities make her a valuable addition to any team",
+    image: "/images/image5.jpg",
+    position:"PMP® | Project Manager",
   },
   {
-    Name: "John Doe",
-    text: "Working with this team has transformed our business. Their expertise in process optimization and automation has saved us countless hours and significantly improved our efficiency.",
-    image: "/images/man.png",
-    position:"CEO, Tech Haven",
+    Name: "Hycent Ajah",
+    text: "She is a remarkable professional who always delivers excellence in all her engagement. She has vast knowledge of project management and CRM software such as ClickUp, Zendesk, HubSpot, Asana, Kanban, Trello, Airtable, and Jira. I vouch for her reliability and recommend her for any PM/VA role.",
+    image: "/images/image6.jpg",
+    position:"Revenue Operations | Sales strategy & Operations",
   },
 ];
