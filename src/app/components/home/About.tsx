@@ -48,19 +48,22 @@ export default function About() {
             data-aos-delay="200"
           >
             <div className="w-full h-full space-y-[24px]">
-              <p className="text-[16px] md:text-[16px] lg:text-[20px] font-normal leading-[130%] text-white">
+              <p className="text-[16px] md:text-[16px] lg:text-[18px] font-normal leading-[130%] text-white">
                 I&apos;m{" "}
-                <span className="text-[#FA7892]">Ugochinyere Amaonyeanaso</span>{" "}
-                your tech-savvy virtual assistant with high proficiency in CRMs,
-                Project Management and Administrative support committed to boost
-                your business efficiency.
+                <span className="text-[#FA7892]">Ugochinyere Amaonyeanaso</span>{" "},
+                I Help Business Owners, Founders & Startups Work Smarter and
+                Grow Faster.Through Agile Project Management, Automation, and
+                Process Optimization, I help streamline systems, manage
+                projects, and improve workflows.
               </p>
-              <p className="text-[16px] md:text-[16px] lg:text-[20px] font-normal leading-[130%] text-white">
-                I help busy entrepreneurs and teams streamline operations,
-                manage projects, and automate daily tasks - so you can focus on
-                what truly matters. With 8+ years of global experience and a
-                track record of boosting project success by 93%, I bring
-                clarity, structure, and calm to your workflow.
+              <p className="text-[16px] md:text-[16px] lg:text-[18px] font-normal leading-[130%] text-white">
+                If your business isn&apos;t growing, there&apos;s usually a breakdown
+                behind the scenes. Inefficient operations hurt your KPIs—and
+                your ROI. I help startups, agencies, and busy professionals set
+                up clear processes, automate tasks, and manage projects
+                effectively. With the right systems in place, your business runs
+                smoother, scales faster, and performs better. Let me oil your
+                engine.
               </p>
               <div>
                 <Link href="#contact">
