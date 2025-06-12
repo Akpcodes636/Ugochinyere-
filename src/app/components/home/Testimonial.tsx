@@ -11,7 +11,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function Testimonial() {
   return (
-    <section id="Testimonial" className="bg-coer bg-black py-[53px]">
+    <section id="Testimonial" className="bg-cover bg-black py-[53px]">
       <div className="container mx-auto">
         <div className="max-w-[400px] md:max-w-[400px] lg:max-w-[634px] mx-auto">
           <Image

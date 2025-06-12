@@ -36,7 +36,7 @@ body::-webkit-scrollbar {
     font-family: var(--font-noto-sans-thai-ui), sans-serif;
   }
   .bg-cover {
-    background-image: url("/images/cover.png");
+    background-image: url("/images/cover.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }

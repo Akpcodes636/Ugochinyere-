@@ -71,4 +71,10 @@ export const Testimonials = [
     image: "/images/image6.jpg",
     position:"Revenue Operations | Sales strategy & Operations",
   },
+  {
+    Name: "Nicole(Nikki) Duncan",
+    text: "Her presence elevated the discussion and brought a collaborative energy that made the experience richer for all of us ,Ugochinyere is the kind of professional you want in your corner: smart, grounded, and deeply committed to excellence.",
+    image: "/images/img4.jpg",
+    position:"Chief of Staff",
+  },
 ];

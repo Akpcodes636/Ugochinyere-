@@ -13,9 +13,14 @@ export default function Contact() {
     Message: "",
   });
 
-  const [errors, setErrors] = useState<{ Name?: string; Email?: string; Message?: string }>({});
+  const [errors, setErrors] = useState<{
+    Name?: string;
+    Email?: string;
+    Message?: string;
+  }>({});
 
-  const validateEmail = (email: string): boolean => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validateEmail = (email: string): boolean =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const validateForm = () => {
     const newErrors: { Name?: string; Email?: string; Message?: string } = {};
@@ -42,7 +47,9 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     const { name, value } = e.target;
     setFormValues((prev: FormValues) => ({
       ...prev,
@@ -68,7 +75,9 @@ export default function Contact() {
     message?: string;
   }
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const onSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault();
 
     if (!validateForm()) {
@@ -193,14 +202,14 @@ export default function Contact() {
                   <div className="flex items-center justify-center mt-[28px] mb-[56px]">
                     {/* <Link href="https://koalendar.com/e/meet-with-ewherhe-akpesiri"> */}
                     <Link href="https://selfany.com/projectmanagementclaritycall">
-                    <Button
-                      type="submit"
-                      icon={null}
-                      style="pink"
-                      css="w-[200px] lg:w-[393px] h-[43px] rounded-[31px] font-bold text-[#000000]"
-                    >
-                      Book a Call
-                    </Button>
+                      <Button
+                        type="submit"
+                        icon={null}
+                        style="pink"
+                        css="w-[200px] lg:w-[393px] h-[43px] rounded-[31px] font-bold text-[#000000]"
+                      >
+                        Book a Call
+                      </Button>
                     </Link>
                   </div>
                   <hr className="border border-[#E2E2E2AB]" />
@@ -211,6 +220,13 @@ export default function Contact() {
                     <p className="text-[14px] lg:text-[16px] text-[#00000066]">
                       Avaliable Monday to Friday
                     </p>
+                  </div>
+                  <div className="text-center mt-4">
+                   <Link href="https://koalendar.com/e/meet-with-ewherhe-akpesiri" className="">
+                      <p className="text-[13px] text-[#00000099] underline hover:text-[#FA7892] transition duration-200">
+                        Or book a free consultation call
+                      </p>
+                    </Link>
                   </div>
                 </div>
               </div>

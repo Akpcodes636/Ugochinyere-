@@ -9,7 +9,7 @@ import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const images = ["/images/About.png", "/images/Hero.png"];
+const images = ["/images/About.png", "/images/About1.jpg"];
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,7 +24,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="bg-coer bg-black">
+    <section id="about" className="bg-cover bg-black">
       <div className="container mx-auto py-[50px]">
         <div
           className="w-[179px] h-[52px] mx-auto"
