@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Digital PM — website (Next.js)
 
-## Getting Started
+Next.js 16 (App Router) site. Content lives in **Supabase** and is edited at **`/admin`**.
+Enquiries are sent through **Web3Forms**. The design is the original CSS, unchanged (`app/styles.css`, `app/admin.css`).
 
-First, run the development server:
+Pages are **server-rendered** (good for SEO): Google sees all projects, reviews and blog posts in the HTML.
+They are cached and refreshed every 60 seconds, and **instantly** whenever something is saved in the admin panel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Structure
+
+```
+app/(site)/layout.tsx          Header, footer, site-wide SEO metadata
+app/(site)/page.tsx            Homepage
+app/(site)/blog/page.tsx       All blog posts           → /blog
+app/(site)/blog/[slug]/        One blog post            → /blog/my-post
+app/admin/                     Admin panel (login)      → /admin
+app/api/revalidate/route.ts    Refreshes pages after admin saves (admins only)
+app/sitemap.ts, app/robots.ts  /sitemap.xml and /robots.txt
+components/                    Header/footer, enquiry form, blog cards, admin app
+lib/content.ts                 Supabase queries + fixed homepage limits
+public/assets/images/          Images that ship with the site
+supabase/schema.sql, seed.sql  Database setup
+_legacy-static/                The old HTML version (safe to delete)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## SEO included
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Real HTML for every page, unique `<title>`, description and canonical URL per page
+- Clean blog URLs (`/blog/my-post`) with Open Graph / Twitter cards from the post's cover and summary
+- JSON-LD structured data: `ProfessionalService` (with reviews), `WebSite`, `Blog`, `BlogPosting`
+- Automatic `sitemap.xml` (includes every published post) and `robots.txt` (admin hidden)
+- Old URLs (`index.html`, `blog.html`, `post.html?slug=…`) 308-redirect to the new ones
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Fixed limits (so the layout never breaks)
 
-## Learn More
+| Section           | Shown on homepage |
+|-------------------|-------------------|
+| Selected Projects | 6                 |
+| Google Profiles   | 6                 |
+| Testimonials      | 4                 |
+| Blog              | 3 newest (all on /blog) |
 
-To learn more about Next.js, take a look at the following resources:
+## Writing blog posts (Medium-style)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Admin → Blog → + Write a story** opens a clean writing page:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Type the **title**, then a short **summary** under it (shown on the blog card and in Google), then your story.
+- **Select text** to get the toolbar: bold, italic, link, big/small heading, quote, list.
+- On an **empty line**, click **+** to add an image or a divider. You can also paste or drag images in.
+- Shortcuts at the start of a line, then a space: `##` heading, `###` small heading, `>` quote, `-` list. `---` + Enter = divider.
+- Everything **saves automatically**. New stories are **drafts** until you press **Publish**.
 
-## Deploy on Vercel
+## Publishing and scheduling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Press **Publish** (top right). The panel shows a **Google preview** and lets you set the web address and author. Then:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Publish now**: the story goes live immediately.
+- **Schedule for later**: pick a date & time (your local time). The post shows a **Scheduled** badge, stays hidden
+  from visitors, Google and the sitemap, and goes live automatically at that time (pages refresh within about a minute).
+- A scheduled post can be rescheduled or **cancelled** (back to draft); a live post can be **unpublished**.
+
+Editing a live post records a *last updated* date automatically; it is sent to Google and the sitemap,
+and shown on the post as "Updated …" when it is a later day than the publish date. Posts also show "X min read".
+
+## Setup
+
+1. **Supabase → SQL Editor:** run `supabase/schema.sql`, then `supabase/seed.sql`.
+   Existing database? Run the files in `supabase/migrations/` instead (each is safe to re-run).
+2. **Owner login:** Authentication → Users → *Add user*, then
+   `insert into admins (email) values ('owner@example.com');`
+   Recommended: Authentication → Providers → Email → turn **off** "Allow new users to sign up".
+3. **Environment variables** (`.env.local` locally, and in your host's dashboard, e.g. Vercel):
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=...
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
+   NEXT_PUBLIC_SITE_URL=https://www.your-domain.com   ← important for SEO (canonical, sitemap)
+   NEXT_PUBLIC_SITE_TIMEZONE=Africa/Lagos              ← time zone for dates on the site (e.g. Europe/Dublin)
+   ```
+4. **Auth redirect:** Authentication → URL Configuration → *Site URL* = your domain, and add
+   `https://YOUR-DOMAIN/admin` to *Redirect URLs* (for password-reset emails).
+5. **Web3Forms:** paste your access key in **Admin → Settings**.
+6. **Deploy** to Vercel (recommended) or any Node host: `npm run build && npm start`.
+7. After going live, submit `https://YOUR-DOMAIN/sitemap.xml` in Google Search Console.
+
+## Running locally
+
+```
+npm install
+npm run dev        # http://localhost:3000
+```
