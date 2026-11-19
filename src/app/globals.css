@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  /* Hide vertical scrollbar but allow vertical scrolling */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+ body {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    overflow-x: hidden;
+    font-family: var(--font-inter), sans-serif;
+  }
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  /* Optional class for Thai text */
+  /* Optional class for Thai text */
+  .thai-text {
+    font-family: var(--font-noto-sans-thai-ui), sans-serif;
+  }
+  .bg-cover {
+    background-image: url("/images/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .input-class {
+    @apply h-[56px] w-full rounded-[5px] border border-[#EFEFEF] bg-white px-4 py-3 text-[#000000E5] hover:border focus:border-[3px] focus:bg-white focus:outline-none mb-[24px];
+  }
+  
+}
+
+@layer utilities {
+  .custom-active-slide {
+    @apply scale-105 z-20  transition-all duration-500;
+  }
+
+  .swiper-slide {
+    @apply scale-90 z-10  transition-all duration-500;
+  }
+  .testimonial-swiper .swiper-slide {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out both;
+  }
+  
+}
+
+@theme {
+  --color-black: #0a0a0a;
+  --color-white: #ffffff;
+  --color-pink: #fa7892;
+  --color-purple: #b219d0;
+  --color-lightpurple: #fbf1fd;
+  --color-grey: #efefef;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  @apply px-5 sm:px-8;
+}
+
+.background {
+  background-image: url('/images/background1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
